@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Shaharia66.github.io/saif_portfolio",
+  "homepage": "https://Shaharia66.github.io/saiffsPortfolio",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
