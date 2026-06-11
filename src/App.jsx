@@ -3,13 +3,13 @@ import { useState, useEffect, useRef } from "react";
 // ─── DATA ────────────────────────────────────────────────────────────────────
 const personal = {
   name: "Gazi Shahariar Hasan",
-  roles: ["FullStack Developer", "React Developer", "Spring Boot Engineer", "AI Integration Specialist"],
+  roles: ["Full Stack Developer", "AI Engineer", "LLM Integration Specialist", "Agentic AI Developer", "Spring Boot Engineer"],
   email: "gssaif.tm@gmail.com",
   phone: "+880 1714374806",
   linkedin: "https://www.linkedin.com/in/gazi-shahariar-hasan-77807a373/",
   github: "https://github.com/Shaharia66",
-  objective: "FullStack Developer with a strong foundation in Java, SpringBoot, JavaScript, React.js, HTML, CSS, MySQL, and AI Integration. Major in EEE, now fully focused on building efficient, responsive web applications. Passionate about continuous learning, problem solving, and applying analytical skills to real-world software development.",
-  objective2:"I'm a Full Stack Developer with a B.Sc in Electrical and Electronic Engineering from SUST. My academic background in EEE has given me a strong analytical foundation that I now channel into building modern, scalable web applications.I specialize in Java, Spring Boot, React.js, MySQL, and AI Integration. I've built production-grade platforms including an AI-powered news aggregator,e-commerce systems, and a hostel management system with full authentication flows.I'm passionate about continuous learning and believe in writing clean, maintainable code that solves real-world problems efficiently."
+  objective: "Full Stack Developer and AI Engineer with a strong foundation in Java, Spring Boot, React.js, Python, FastAPI and LLM integration. B.Sc in EEE from SUST. Experienced in building production-ready AI-powered applications using LangChain, RAG, ChromaDB, and Agentic AI frameworks. Passionate about building intelligent, secure, and scalable systems that solve real-world problems.",
+  objective2: "I'm a Full Stack Developer and AI Engineer with a B.Sc in Electrical and Electronic Engineering from SUST. My academic background in EEE has given me a strong analytical foundation that I now channel into building intelligent, production-ready applications.\n\nI operate at the intersection of Full Stack Engineering and Artificial Intelligence — building systems that are not just functional, but intelligent. I specialize in Java, Spring Boot, React.js, Python, FastAPI, and LLM integration using LangChain, RAG architecture, ChromaDB, and Agentic AI frameworks.\n\nI'm passionate about continuous learning and believe in writing clean, maintainable code that solves real-world problems efficiently."
 };
 
 const navLinks = ["Home","About","Education","Experience","Research","Projects","Skills","Certifications","References","Contact"];
@@ -21,10 +21,28 @@ const education = [
 ];
 
 const experience = [
+  { title:"Generative AI & Agentic AI Engineer", company:"Self-employed", location:"Remote", period:"Dec 2025 – Present",
+    bullets:[
+      "Developed AI-powered applications using LangChain, RAG architecture, ChromaDB, and Groq LLM API.",
+      "Built InsightForge — an Agentic AI research assistant with autonomous 4-step intelligent pipeline and PDF export.",
+      "Implemented semantic search over vector knowledge bases using ChromaDB, Pinecone, and RAG pipelines.",
+      "Explored multi-agent frameworks including LangGraph, Crew AI, Agno, and Autogen for Agentic AI development."
+    ]
+  },
+  { title:"Full Stack Web Development", company:"Self-paced / Online", location:"Remote", period:"Jun 2023 – Oct 2024",
+    bullets:[
+      "Completed course covering HTML, CSS, JavaScript, React, Java, Spring Boot, MySQL, Git and GitHub.",
+      "Implemented secure OAuth2 authentication and role-based access control with Spring Boot Security.",
+      "Integrated AI/LLM capabilities into production workflows using OpenAI API.",
+      "Gained end-to-end development experience from UI design to database management and API integration."
+    ]
+  },
   { title:"Industrial Trainee", company:"Training Institute for Chemical Industries (TICI)", location:"Palash, Narsingdi", period:"29 Nov – 19 Dec 2024",
-    bullets:["Operated industrial electrical systems: switching gear, safety relays, motor protection devices; programmed and debugged PLCs.","Conducted fault diagnosis on process control loops and practiced safety protocols."] },
-  { title:"Full Stack Web Development Training", company:"Self-paced / Online", location:"Remote", period:"Jun 2023 – Oct 2024",
-    bullets:["Completed course covering HTML, CSS, JavaScript, React, Java, Spring Boot, MySQL, Git and GitHub.","Built full-stack apps using React, Spring Boot, and MySQL with hands-on projects.","Implemented OAuth2 authentication and role-based access control with Spring Security.","Practiced collaborative Git workflows; gained end-to-end development experience."] }
+    bullets:[
+      "Operated industrial electrical systems: switching gear, safety relays, motor protection devices; programmed and debugged PLCs.",
+      "Conducted fault diagnosis on process control loops and practiced industrial safety protocols."
+    ]
+  }
 ];
 
 const research = {
@@ -34,26 +52,61 @@ const research = {
     { name:"Dr. Md. Mohsinur Rahman Adnan", role:"Asst. Prof., EEE, BUET", period:"Sept 2024 – Feb 2025", link:"https://eee.buet.ac.bd/people/faculty/dr-md-mra" },
     { name:"Md. Shariful Islam", role:"Lecturer, EEE, SUST", period:"Feb 2025 – May 2025", link:"https://www.sust.edu/departments/eee/faculty/shariful-eee@sust.edu" }
   ],
-  bullets:["Developed a 1-D analytical model for threshold voltage in DGJLFET and DGSJLFET with p-type channel.","Applied Poisson's equation with electrostatic boundary conditions.","Analyzed impact of stacked oxide (HfO₂) on threshold voltage and validated through TCAD."]
+  bullets:[
+    "Developed a 1-D analytical model for threshold voltage in DGJLFET and DGSJLFET with p-type channel.",
+    "Applied Poisson's equation with electrostatic boundary conditions considering key device parameters.",
+    "Analyzed impact of stacked oxide (HfO₂) on threshold voltage and validated through TCAD simulation."
+  ]
 };
 
 const projects = [
-  { title:"AI-Powered News Aggregator", sub:"Real-time News Platform", date:"Apr 2026", link:"https://newsbd-frontend1.vercel.app/", tech:["React","Spring Boot","MySQL","OAuth2","OpenAI API"], color:"#22c55e", icon:"📰",
-    bullets:["AI-powered news aggregation fetching, categorizing and displaying real-time news from trusted sources.","AI-based summarization and smart filtering by category, section and publication date.","OAuth2 auth, bookmarking, sharing, and admin dashboard for content moderation."] },
-  { title:"Kundokoli", sub:"Handmade Artisan E-Commerce", date:"Mar 2026", link:"https://newsbd-frontend1.vercel.app/", tech:["React.js","Spring Boot","MySQL","JWT"], color:"#0ea5e9", icon:"🛒",
-    bullets:["Full-stack handmade artisan e-commerce platform built with React.js, Spring Boot and MySQL.","Product management, customer ordering system and JWT authentication.","Admin dashboard for managing products, orders and platform operations."] },
-  { title:"Hostel Management System", sub:"Spring Boot REST API", date:"Dec 2025", link:"https://hostelmanagementwithsecurity-production.up.railway.app/swagger-ui.html", tech:["Spring Boot","JWT","MySQL","REST API"], color:"#a855f7", icon:"🏢",
-    bullets:["Full hostel management backend using Spring Boot, JWT and MySQL.","Role-based access control for admins, staff and students.","REST APIs for user management, booking and authentication."] },
-  { title:"E-Commerce Frontend", sub:"React + Redux Application", date:"Sep 2025", link:"https://quickshoppingsaif.netlify.app/", tech:["React","Redux Toolkit","CSS"], color:"#f97316", icon:"🛍️",
-    bullets:["Responsive e-commerce frontend with React and Redux Toolkit for state management.","Product listing, cart management and dynamic UI updates."] },
-  { title:"Weather App", sub:"JavaScript + API Integration", date:"Jul 2025", link:"https://weatherappsaif.netlify.app/", tech:["JavaScript","REST API","HTML/CSS"], color:"#06b6d4", icon:"🌦️",
-    bullets:["Real-time weather info based on user location or city search via API integration.","Dynamic UI showing temperature, humidity, wind speed and weather conditions."] }
+  { title:"InsightForge", sub:"Agentic AI Research Assistant", date:"Jun 2026", link:"https://aireserchagent.netlify.app/", tech:["Python","FastAPI","LangChain","Groq API","LLaMA 3.3 70B","React.js","Tailwind CSS"], color:"#a855f7", icon:"🤖",
+    bullets:[
+      "Autonomous 4-step intelligent pipeline: topic analysis, deep research, insight extraction, and professional report generation.",
+      "Powered by Groq API (LLaMA 3.3 70B) and LangChain for fast, intelligent agentic reasoning.",
+      "React.js + Tailwind CSS frontend with one-click PDF export of fully formatted research reports."
+    ]
+  },
+  { title:"AI Code Reviewer", sub:"RAG-Powered Code Analysis", date:"Jun 2026", link:"https://aicoderevieweru.netlify.app/", tech:["LangChain","RAG","ChromaDB","Groq LLM","FastAPI","React"], color:"#22c55e", icon:"🔍",
+    bullets:[
+      "Built with LangChain, RAG architecture, and ChromaDB vector database for semantic code analysis.",
+      "Integrated Groq LLM for fast intelligent code review with semantic search over a security knowledge base.",
+      "FastAPI backend and React frontend with rate limiting, input sanitization, and CORS protection."
+    ]
+  },
+  { title:"AI-Powered News Aggregator", sub:"Real-time News Platform", date:"Apr 2026", link:"https://newsbd-frontend1.vercel.app/", tech:["React","Spring Boot","MySQL","OAuth2","OpenAI API"], color:"#0ea5e9", icon:"📰",
+    bullets:[
+      "AI-powered news aggregation fetching, categorizing and displaying real-time news from trusted sources.",
+      "AI-based summarization and smart filtering by category, section and publication date.",
+      "OAuth2 authentication, bookmarking, sharing, and admin dashboard for content moderation."
+    ]
+  },
+  { title:"Kundokoli", sub:"Handmade Artisan E-Commerce", date:"Mar 2026", link:"https://newsbd-frontend1.vercel.app/", tech:["React.js","Spring Boot","MySQL","JWT"], color:"#f97316", icon:"🛒",
+    bullets:[
+      "Full-stack handmade artisan e-commerce platform built with React.js, Spring Boot and MySQL.",
+      "Product management, customer ordering system and JWT-based authentication.",
+      "Admin dashboard for managing products, orders and platform operations."
+    ]
+  },
+  { title:"Hostel Management System", sub:"Spring Boot REST API", date:"Dec 2025", link:"https://hostelmanagementwithsecurity-production.up.railway.app/swagger-ui.html", tech:["Spring Boot","JWT","MySQL","REST API"], color:"#06b6d4", icon:"🏢",
+    bullets:[
+      "Full hostel management backend using Spring Boot, JWT and MySQL.",
+      "Role-based access control for admins, staff and students.",
+      "REST APIs for user management, booking and authentication."
+    ]
+  },
+  { title:"E-Commerce Frontend", sub:"React + Redux Application", date:"Sep 2025", link:"https://quickshoppingsaif.netlify.app/", tech:["React","Redux Toolkit","CSS"], color:"#f59e0b", icon:"🛍️",
+    bullets:[
+      "Responsive e-commerce frontend with React and Redux Toolkit for state management.",
+      "Product listing, cart management and dynamic UI updates."
+    ]
+  }
 ];
 
 const skillGroups = [
-  { cat:"Languages", items:[{n:"HTML/CSS",v:90},{n:"JavaScript",v:85},{n:"Java",v:80},{n:"SQL/MySQL",v:78},{n:"Python",v:60}] },
-  { cat:"Frameworks", items:[{n:"React.js",v:85},{n:"Spring Boot",v:80},{n:"Redux Toolkit",v:75},{n:"Spring Security",v:72}] },
-  { cat:"Tools", items:[{n:"Git & GitHub",v:88},{n:"LaTeX",v:70},{n:"MATLAB",v:65},{n:"Canva/Figma",v:65}] }
+  { cat:"AI & LLM", items:[{n:"LangChain / LangGraph",v:82},{n:"RAG Architecture",v:80},{n:"Groq API / OpenAI API",v:85},{n:"Hugging Face",v:72},{n:"ChromaDB / Pinecone",v:78},{n:"Fine-Tuning (QLORA,LORA)",v:68}] },
+  { cat:"Languages & Frameworks", items:[{n:"Python / FastAPI",v:80},{n:"Java / Spring Boot",v:82},{n:"React.js / Redux",v:85},{n:"JavaScript",v:83},{n:"MySQL",v:78},{n:"Spring Security",v:74}] },
+  { cat:"Tools & Security", items:[{n:"OAuth2 / JWT",v:82},{n:"Git & GitHub",v:88},{n:"CORS / Rate Limiting",v:75},{n:"REST API Design",v:85},{n:"LaTeX",v:70},{n:"MATLAB",v:65}] }
 ];
 
 const certs = [
@@ -210,7 +263,6 @@ export default function App() {
           <button onClick={()=>goto("home")} style={{fontFamily:"Syne,sans-serif",fontWeight:800,fontSize:"20px",color:"#22c55e",background:"none",border:"none",cursor:"pointer"}}>
             &lt;GSH /&gt;
           </button>
-          {/* Desktop */}
           <div style={{display:"flex",gap:"4px",alignItems:"center"}} className="hidden-mobile">
             {navLinks.map(n=>(
               <button key={n} onClick={()=>goto(n)} style={{background:activeNav===n?"rgba(34,197,94,.1)":"none",color:activeNav===n?"#22c55e":sub,border:"none",borderRadius:"8px",padding:"6px 12px",cursor:"pointer",fontSize:"13px",fontFamily:"Outfit,sans-serif",fontWeight:500,transition:"all .2s"}}>
@@ -230,7 +282,6 @@ export default function App() {
             </button>
           </div>
         </div>
-        {/* Mobile menu */}
         {menuOpen && (
           <div style={{background:dark?"#0d1b33":"#fff",borderTop:`1px solid ${border}`,padding:"12px 24px"}}>
             {navLinks.map(n=>(
@@ -290,9 +341,11 @@ export default function App() {
         <SectionTitle label="01. about me" title="Who I Am" />
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"48px",alignItems:"center"}}>
           <div>
-            <p style={{color:sub,lineHeight:1.9,fontSize:"15px",marginBottom:"20px"}}>{personal.objective2}</p>
+            {personal.objective2.split('\n\n').map((para,i)=>(
+              <p key={i} style={{color:sub,lineHeight:1.9,fontSize:"15px",marginBottom:"16px"}}>{para}</p>
+            ))}
             <div style={{display:"flex",flexWrap:"wrap",gap:"10px",marginTop:"24px"}}>
-              {["React.js","Spring Boot","Java","MySQL","OAuth2","Redux","Git"].map(t=>(
+              {["Python","LangChain","React.js","Spring Boot","FastAPI","RAG","ChromaDB","Java","JWT","OAuth2"].map(t=>(
                 <span key={t} style={{background:"rgba(34,197,94,.08)",border:"1px solid rgba(34,197,94,.2)",color:"#22c55e",borderRadius:"6px",padding:"5px 12px",fontSize:"12px",fontFamily:"JetBrains Mono,monospace"}}>
                   {t}
                 </span>
@@ -300,7 +353,7 @@ export default function App() {
             </div>
           </div>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"16px"}}>
-            {[["5+","Projects Built"],["3+","Years Learning"],["5.0","GPA in SSC & HSC"],["2","Research Papers"]].map(([v,l])=>(
+            {[["7+","Projects Built"],["3+","Years Learning"],["5.0","GPA in SSC & HSC"],["2","AI Projects Live"]].map(([v,l])=>(
               <div key={l} style={{background:cardBg,border:`1px solid ${border}`,borderRadius:"14px",padding:"24px",textAlign:"center",backdropFilter:"blur(8px)"}}>
                 <div style={{fontFamily:"Syne,sans-serif",fontSize:"32px",fontWeight:800,color:"#22c55e"}}>{v}</div>
                 <div style={{color:sub,fontSize:"12px",marginTop:"4px"}}>{l}</div>
@@ -450,9 +503,9 @@ export default function App() {
           ))}
         </div>
         <div style={{marginTop:"32px",background:cardBg,border:`1px solid ${border}`,borderRadius:"16px",padding:"28px",backdropFilter:"blur(8px)"}}>
-          <h3 style={{fontFamily:"Syne,sans-serif",fontWeight:700,fontSize:"16px",color:"#22c55e",marginBottom:"16px"}}>Other Tools & Technologies</h3>
+          <h3 style={{fontFamily:"Syne,sans-serif",fontWeight:700,fontSize:"16px",color:"#22c55e",marginBottom:"16px"}}>Agentic AI & Other Frameworks</h3>
           <div style={{display:"flex",flexWrap:"wrap",gap:"10px"}}>
-            {["MATLAB Simulink","LTspice","PowerWorld","Microwind","AutoCAD","MS Office","Google Workspace","Canva","LaTeX"].map(t=>(
+            {["LangGraph","Crew AI","Agno","Autogen","LlamaIndex","Hugging Face","Fine-Tuning (QLORA,LORA)","MCP","Google A2A","MATLAB Simulink","AutoCAD","MS Office","LaTeX","Canva"].map(t=>(
               <span key={t} style={{background:"rgba(34,197,94,.06)",border:"1px solid rgba(34,197,94,.15)",color:sub,borderRadius:"8px",padding:"6px 14px",fontSize:"13px"}}>
                 {t}
               </span>
@@ -511,7 +564,7 @@ export default function App() {
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"40px",alignItems:"start"}}>
           <div>
             <p style={{color:sub,fontSize:"15px",lineHeight:1.8,marginBottom:"32px"}}>
-              I'm currently open to new opportunities. Whether you have a project, question, or just want to say hi — my inbox is always open!
+              I'm currently open to new opportunities in AI Engineering and Full Stack Development. Whether you have a project, question, or just want to say hi — my inbox is always open!
             </p>
             <div style={{display:"flex",flexDirection:"column",gap:"16px"}}>
               {[[`📧`,personal.email,`mailto:${personal.email}`],[`📱`,personal.phone,`tel:${personal.phone}`],[`🔗`,"LinkedIn Profile",personal.linkedin],[`🐙`,"GitHub Profile",personal.github]].map(([icon,label,href])=>(
