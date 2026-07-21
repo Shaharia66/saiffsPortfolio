@@ -14,6 +14,32 @@ const personal = {
 
 const navLinks = ["Home","About","Education","Experience","Research","Projects","Skills","Certifications","References","Contact"];
 
+// Tech logos shown in the scrolling marquee at the top of the hero.
+// type:"icon" pulls a real brand mark from Simple Icons (cdn.simpleicons.org/<slug>/<hexcolor>).
+// type:"badge" is used for tools without a public brand icon (rendered as a colored text chip instead).
+const techStack = [
+  { name:"Java", type:"icon", slug:"openjdk", color:"F8981D" },
+  { name:"Spring Boot", type:"icon", slug:"springboot", color:"6DB33F" },
+  { name:"React", type:"icon", slug:"react", color:"61DAFB" },
+  { name:"Python", type:"icon", slug:"python", color:"3776AB" },
+  { name:"FastAPI", type:"icon", slug:"fastapi", color:"009688" },
+  { name:"JavaScript", type:"icon", slug:"javascript", color:"F7DF1E" },
+  { name:"Docker", type:"icon", slug:"docker", color:"2496ED" },
+  { name:"MySQL", type:"icon", slug:"mysql", color:"4479A1" },
+  { name:"MongoDB", type:"icon", slug:"mongodb", color:"47A248" },
+  { name:"Redis", type:"icon", slug:"redis", color:"DC382D" },
+  { name:"Memcached", type:"badge", fallback:"MC", color:"824998" },
+  { name:"CI/CD", type:"icon", slug:"githubactions", color:"2088FF" },
+  { name:"Git", type:"icon", slug:"git", color:"F05032" },
+  { name:"GitHub", type:"icon", slug:"github", color:"181717" },
+  { name:"HTML5", type:"icon", slug:"html5", color:"E34F26" },
+  { name:"CSS3", type:"icon", slug:"css3", color:"1572B6" },
+  { name:"LangChain", type:"badge", fallback:"LC", color:"1C3C3C" },
+  { name:"RAG", type:"badge", fallback:"RAG", color:"0284C7" },
+  { name:"ChromaDB", type:"badge", fallback:"DB", color:"7C3AED" },
+  { name:"Groq API", type:"badge", fallback:"Gq", color:"F97316" },
+];
+
 const education = [
   { degree:"B.Sc Engineering in EEE", inst:"Shahjalal University of Science and Technology, Sylhet", period:"Feb 2020 – July 2025", grade:"CGPA 3.34/4.00", icon:"🎓" },
   { degree:"Higher Secondary Certificate", inst:"Khulna Public College, Khulna", period:"July 2017 – May 2019", grade:"GPA 5.00/5.00", icon:"🏫" },
@@ -106,7 +132,8 @@ const projects = [
 const skillGroups = [
   { cat:"AI & LLM", items:[{n:"LangChain / LangGraph",v:82},{n:"RAG Architecture",v:80},{n:"Groq API / OpenAI API",v:85},{n:"Hugging Face",v:72},{n:"ChromaDB / Pinecone",v:78},{n:"Fine-Tuning (QLORA,LORA)",v:68}] },
   { cat:"Languages & Frameworks", items:[{n:"Python / FastAPI",v:80},{n:"Java / Spring Boot",v:82},{n:"React.js / Redux",v:85},{n:"JavaScript",v:83},{n:"MySQL",v:78},{n:"Spring Security",v:74}] },
-  { cat:"Tools & Security", items:[{n:"OAuth2 / JWT",v:82},{n:"Git & GitHub",v:88},{n:"CORS / Rate Limiting",v:75},{n:"REST API Design",v:85},{n:"LaTeX",v:70},{n:"MATLAB",v:65}] }
+  { cat:"Databases & Caching", items:[{n:"MongoDB",v:72},{n:"Redis",v:70},{n:"Memcached",v:62},{n:"MySQL",v:78},{n:"ChromaDB / Pinecone",v:78},{n:"REST API Design",v:85}] },
+  { cat:"Tools & DevOps", items:[{n:"OAuth2 / JWT",v:82},{n:"Git & GitHub",v:88},{n:"Docker",v:76},{n:"CI/CD (GitHub Actions)",v:74},{n:"CORS / Rate Limiting",v:75},{n:"System Design & DSA",v:75}] }
 ];
 
 const certs = [
@@ -127,7 +154,9 @@ function Particles() {
     const c = cvs.current; if (!c) return;
     const ctx = c.getContext("2d");
     let W = c.width = window.innerWidth, H = c.height = window.innerHeight;
-    const pts = Array.from({length:80}, () => ({
+    const isSmall = W < 640;
+    const count = isSmall ? 40 : 80;
+    const pts = Array.from({length:count}, () => ({
       x: Math.random()*W, y: Math.random()*H,
       vx: (Math.random()-.5)*.4, vy: (Math.random()-.5)*.4,
       r: Math.random()*1.5+.5
@@ -155,6 +184,44 @@ function Particles() {
     return () => { cancelAnimationFrame(raf); window.removeEventListener("resize",resize); };
   },[]);
   return <canvas ref={cvs} style={{position:"fixed",top:0,left:0,zIndex:0,pointerEvents:"none",opacity:.6}} />;
+}
+
+// ─── TECH MARQUEE (top-of-hero skills strip) ────────────────────────────────
+function TechMarquee({ sub }) {
+  const track = [...techStack, ...techStack]; // duplicated for a seamless infinite loop
+  return (
+    <div className="tech-marquee-wrap">
+      <div className="tech-marquee-track">
+        {track.map((t, i) => (
+          <div className="tech-chip" key={i}>
+            <div className="tech-icon-box">
+              {t.type === "icon" ? (
+                <img
+                  src={`https://cdn.simpleicons.org/${t.slug}/${t.color}`}
+                  alt={t.name}
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                    e.currentTarget.nextSibling.style.display = "flex";
+                  }}
+                />
+              ) : null}
+              <span
+                className="tech-icon-fallback"
+                style={{
+                  display: t.type === "icon" ? "none" : "flex",
+                  background: `#${t.color}`
+                }}
+              >
+                {t.fallback || t.name.slice(0,2).toUpperCase()}
+              </span>
+            </div>
+            <span className="tech-chip-label" style={{ color: sub }}>{t.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 // ─── HOOKS ───────────────────────────────────────────────────────────────────
@@ -274,10 +341,10 @@ export default function App() {
             <button onClick={()=>setDark(!dark)} style={{background:"rgba(34,197,94,.08)",border:`1px solid ${border}`,color:"#22c55e",borderRadius:"8px",padding:"7px 10px",cursor:"pointer",fontSize:"13px"}}>
               {dark?"☀️":"🌙"}
             </button>
-            <a href="mailto:gssaif.tm@gmail.com" style={{background:"#22c55e",color:"#000",borderRadius:"8px",padding:"7px 16px",textDecoration:"none",fontSize:"13px",fontWeight:700,fontFamily:"Outfit,sans-serif"}}>
+            <a href="/Shahariar_CV_SWE.pdf" download style={{background:"#22c55e",color:"#000",borderRadius:"8px",padding:"7px 16px",textDecoration:"none",fontSize:"13px",fontWeight:700,fontFamily:"Outfit,sans-serif"}}>
               ↓ CV
             </a>
-            <button onClick={()=>setMenuOpen(!menuOpen)} style={{background:"none",border:"none",color:sub,cursor:"pointer",fontSize:"20px",display:"none"}} className="menu-btn">
+            <button onClick={()=>setMenuOpen(!menuOpen)} className="menu-btn" style={{background:"none",border:"none",color:sub,cursor:"pointer",fontSize:"20px"}}>
               {menuOpen?"✕":"☰"}
             </button>
           </div>
@@ -294,8 +361,9 @@ export default function App() {
       </nav>
 
       {/* ── HERO ── */}
-      <section id="home" style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",position:"relative",zIndex:1,padding:"80px 24px 40px"}}>
-        <div style={{textAlign:"center",maxWidth:"800px"}}>
+      <section id="home" style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",position:"relative",zIndex:1,padding:"96px 16px 40px"}}>
+        <div style={{textAlign:"center",maxWidth:"800px",width:"100%"}}>
+          <TechMarquee sub={sub} />
           <div style={{display:"inline-flex",alignItems:"center",gap:"8px",background:"rgba(34,197,94,.08)",border:"1px solid rgba(34,197,94,.2)",borderRadius:"99px",padding:"6px 16px",marginBottom:"28px"}}>
             <span style={{width:"8px",height:"8px",borderRadius:"50%",background:"#22c55e",display:"inline-block",boxShadow:"0 0 8px #22c55e"}}></span>
             <span style={{color:"#22c55e",fontSize:"12px",fontFamily:"JetBrains Mono,monospace",letterSpacing:"1px"}}>Available for opportunities</span>
@@ -339,13 +407,13 @@ export default function App() {
       {/* ── ABOUT ── */}
       <Section id="about">
         <SectionTitle label="01. about me" title="Who I Am" />
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"48px",alignItems:"center"}}>
+        <div className="about-grid">
           <div>
             {personal.objective2.split('\n\n').map((para,i)=>(
               <p key={i} style={{color:sub,lineHeight:1.9,fontSize:"15px",marginBottom:"16px"}}>{para}</p>
             ))}
             <div style={{display:"flex",flexWrap:"wrap",gap:"10px",marginTop:"24px"}}>
-              {["Python","LangChain","React.js","Spring Boot","FastAPI","RAG","ChromaDB","Java","JWT","OAuth2"].map(t=>(
+              {["Python","LangChain","React.js","Spring Boot","FastAPI","RAG","ChromaDB","Java","JWT","OAuth2","MongoDB","Redis"].map(t=>(
                 <span key={t} style={{background:"rgba(34,197,94,.08)",border:"1px solid rgba(34,197,94,.2)",color:"#22c55e",borderRadius:"6px",padding:"5px 12px",fontSize:"12px",fontFamily:"JetBrains Mono,monospace"}}>
                   {t}
                 </span>
@@ -561,7 +629,7 @@ export default function App() {
       {/* ── CONTACT ── */}
       <Section id="contact">
         <SectionTitle label="09. contact" title="Get In Touch" />
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"40px",alignItems:"start"}}>
+        <div className="contact-grid">
           <div>
             <p style={{color:sub,fontSize:"15px",lineHeight:1.8,marginBottom:"32px"}}>
               I'm currently open to new opportunities in AI Engineering and Full Stack Development. Whether you have a project, question, or just want to say hi — my inbox is always open!
@@ -628,9 +696,81 @@ export default function App() {
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
         @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
         * { box-sizing: border-box; margin:0; padding:0; }
-        @media (max-width:768px) {
+
+        html { -webkit-text-size-adjust:100%; }
+        body { overflow-x:hidden; }
+
+        /* ── Tech marquee ── */
+        .tech-marquee-wrap{
+          position:relative;
+          width:100%;
+          max-width:920px;
+          margin:0 auto 28px;
+          overflow:hidden;
+          -webkit-mask-image:linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+          mask-image:linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        .tech-marquee-track{
+          display:flex;
+          gap:28px;
+          width:max-content;
+          animation:marquee-scroll 34s linear infinite;
+        }
+        .tech-marquee-wrap:hover .tech-marquee-track{ animation-play-state:paused; }
+        @keyframes marquee-scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+        .tech-chip{
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+          gap:6px;
+          flex-shrink:0;
+          width:64px;
+        }
+        .tech-icon-box{
+          width:48px;
+          height:48px;
+          border-radius:14px;
+          background:#ffffff;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          box-shadow:0 4px 16px rgba(0,0,0,.28);
+        }
+        .tech-icon-box img{ width:26px; height:26px; object-fit:contain; }
+        .tech-icon-fallback{
+          width:100%; height:100%; border-radius:14px;
+          color:#fff; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:12px;
+          align-items:center; justify-content:center;
+        }
+        .tech-chip-label{ font-size:11px; font-family:'Outfit',sans-serif; white-space:nowrap; }
+
+        /* ── Responsive grids ── */
+        .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+        .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+
+        @media (prefers-reduced-motion: reduce){
+          .tech-marquee-track{ animation:none; }
+        }
+
+        @media (max-width:900px){
+          .about-grid, .contact-grid{ grid-template-columns:1fr; gap:32px; }
+        }
+
+        @media (max-width:768px){
           .hidden-mobile { display:none !important; }
-          .menu-btn { display:flex !important; }
+          .menu-btn { display:flex !important; align-items:center; justify-content:center; }
+        }
+        @media (min-width:769px){
+          .menu-btn{ display:none !important; }
+        }
+
+        @media (max-width:640px){
+          .tech-icon-box{ width:40px; height:40px; border-radius:12px; }
+          .tech-icon-box img{ width:22px; height:22px; }
+          .tech-chip{ width:52px; }
+          .tech-chip-label{ font-size:10px; }
+          .tech-marquee-track{ gap:18px; }
+          .tech-marquee-wrap{ margin-bottom:20px; }
         }
       `}</style>
     </div>
