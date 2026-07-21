@@ -8,8 +8,8 @@ const personal = {
   phone: "+880 1714374806",
   linkedin: "https://www.linkedin.com/in/gazi-shahariar-hasan-77807a373/",
   github: "https://github.com/Shaharia66",
-  objective: "Full Stack Developer and AI Engineer with a strong foundation in Java, Spring Boot, React.js, Python, FastAPI and LLM integration. B.Sc in EEE from SUST. Experienced in building production-ready AI-powered applications using LangChain, RAG, ChromaDB, and Agentic AI frameworks. Passionate about building intelligent, secure, and scalable systems that solve real-world problems.",
-  objective2: "I'm a Full Stack Developer and AI Engineer with a B.Sc in Electrical and Electronic Engineering from SUST. My academic background in EEE has given me a strong analytical foundation that I now channel into building intelligent, production-ready applications.\n\nI operate at the intersection of Full Stack Engineering and Artificial Intelligence — building systems that are not just functional, but intelligent. I specialize in Java, Spring Boot, React.js, Python, FastAPI, and LLM integration using LangChain, RAG architecture, ChromaDB, and Agentic AI frameworks.\n\nI'm passionate about continuous learning and believe in writing clean, maintainable code that solves real-world problems efficiently."
+  objective: "Software Engineer specializing in full-stack development and applied AI, with hands-on experience buildin gproduction-style applications using Java, Spring Boot, React.js, Python, and FastAPI. Skilled in LLM integration, RAG pipelines, vector databases, and agentic AI frameworks (LangChain, LangGraph, Crew AI). Completed B.Sc from SUST.Seeking an entry-level Software/AI Engineer role to apply strong fundamentals in DSA and system design to real-world products.",
+  objective2: "I'm a Software Engineer specializing in full-stack development and applied AI, with hands-on experience buildin gproduction-style applications using Java, Spring Boot, React.js, Python, and FastAPI. Skilled in LLM integration, RAG pipelines, vector databases, and agentic AI frameworks (LangChain, LangGraph, Crew AI).\n\nComfortable across the stack: REST API design, authentication/authorization (OAuth2, JWT), relational databases (MySQL), Docker, CI/CD (GitHub Actions), and Git-based collaborative workflows. Seeking an entry-level Software/AI Engineer role to apply strong fundamentals in DSA and system design to real-world products."
 };
 
 const navLinks = ["Home","About","Education","Experience","Research","Projects","Skills","Certifications","References","Contact"];
@@ -93,7 +93,7 @@ const projects = [
       "React.js + Tailwind CSS frontend with one-click PDF export of fully formatted research reports."
     ]
   },
-  { title:"AI Code Reviewer", sub:"RAG-Powered Code Analysis", date:"Jun 2026", link:"https://aicoderevieweru.netlify.app/", tech:["LangChain","RAG","ChromaDB","Groq LLM","FastAPI","React"], color:"#22c55e", icon:"🔍",
+  { title:"AI Code Reviewer", sub:"RAG-Powered Code Analysis", date:"Jun 2026", link:"https://aicoderevieweru.netlify.app/", tech:["LangChain","RAG","ChromaDB","Groq LLM","FastAPI","React"], color:"#3b82f6", icon:"🔍",
     bullets:[
       "Built with LangChain, RAG architecture, and ChromaDB vector database for semantic code analysis.",
       "Integrated Groq LLM for fast intelligent code review with semantic search over a security knowledge base.",
@@ -169,12 +169,12 @@ function Particles() {
         if (p.x<0||p.x>W) p.vx*=-1;
         if (p.y<0||p.y>H) p.vy*=-1;
         ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle="rgba(34,197,94,0.5)"; ctx.fill();
+        ctx.fillStyle="rgba(59,130,246,0.5)"; ctx.fill();
       });
       pts.forEach((a,i) => pts.slice(i+1).forEach(b => {
         const d=Math.hypot(a.x-b.x,a.y-b.y);
         if (d<120) { ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
-          ctx.strokeStyle=`rgba(34,197,94,${.15*(1-d/120)})`; ctx.lineWidth=.5; ctx.stroke(); }
+          ctx.strokeStyle=`rgba(59,130,246,${.15*(1-d/120)})`; ctx.lineWidth=.5; ctx.stroke(); }
       }));
       raf = requestAnimationFrame(draw);
     };
@@ -186,7 +186,7 @@ function Particles() {
   return <canvas ref={cvs} style={{position:"fixed",top:0,left:0,zIndex:0,pointerEvents:"none",opacity:.6}} />;
 }
 
-// ─── TECH MARQUEE (top-of-hero skills strip) ────────────────────────────────
+// ─── TECH MARQUEE (top-of-hero scrolling skills strip) ──────────────────────
 function TechMarquee({ sub }) {
   const track = [...techStack, ...techStack]; // duplicated for a seamless infinite loop
   return (
@@ -262,9 +262,9 @@ function Section({id,children,className=""}) {
 function SectionTitle({label,title}) {
   return (
     <div className="mb-12">
-      <p style={{color:"#22c55e",fontFamily:"JetBrains Mono,monospace",fontSize:"12px",letterSpacing:"3px",textTransform:"uppercase",marginBottom:"8px"}}>// {label}</p>
+      <p style={{color:"#3b82f6",fontFamily:"JetBrains Mono,monospace",fontSize:"12px",letterSpacing:"3px",textTransform:"uppercase",marginBottom:"8px"}}>// {label}</p>
       <h2 style={{fontFamily:"Syne,sans-serif",fontSize:"clamp(28px,4vw,42px)",fontWeight:800,color:"#f1f5f9",lineHeight:1.15}}>{title}</h2>
-      <div style={{width:"48px",height:"3px",background:"linear-gradient(90deg,#22c55e,transparent)",marginTop:"12px",borderRadius:"2px"}} />
+      <div style={{width:"48px",height:"3px",background:"linear-gradient(90deg,#3b82f6,transparent)",marginTop:"12px",borderRadius:"2px"}} />
     </div>
   );
 }
@@ -276,10 +276,10 @@ function SkillBar({name,value,delay=0}) {
     <div ref={ref} style={{marginBottom:"14px"}}>
       <div style={{display:"flex",justifyContent:"space-between",marginBottom:"5px"}}>
         <span style={{color:"#cbd5e1",fontSize:"13px",fontWeight:500}}>{name}</span>
-        <span style={{color:"#22c55e",fontSize:"12px",fontFamily:"JetBrains Mono,monospace"}}>{value}%</span>
+        <span style={{color:"#3b82f6",fontSize:"12px",fontFamily:"JetBrains Mono,monospace"}}>{value}%</span>
       </div>
       <div style={{background:"rgba(255,255,255,.06)",borderRadius:"99px",height:"6px",overflow:"hidden"}}>
-        <div style={{height:"100%",background:"linear-gradient(90deg,#16a34a,#4ade80)",borderRadius:"99px",
+        <div style={{height:"100%",background:"linear-gradient(90deg,#2563eb,#60a5fa)",borderRadius:"99px",
           width: vis?`${value}%`:"0%",transition:`width 1.2s cubic-bezier(.4,0,.2,1) ${delay}ms`}} />
       </div>
     </div>
@@ -300,7 +300,7 @@ export default function App() {
   const cardBg = dark ? "rgba(13,27,51,.9)" : "rgba(255,255,255,.92)";
   const txt = dark ? "#e2e8f0" : "#0f172a";
   const sub = dark ? "#94a3b8" : "#64748b";
-  const border = dark ? "rgba(34,197,94,.15)" : "rgba(34,197,94,.25)";
+  const border = dark ? "rgba(59,130,246,.15)" : "rgba(59,130,246,.25)";
 
   useEffect(() => {
     const onScroll = () => {
@@ -327,21 +327,21 @@ export default function App() {
       {/* ── NAVBAR ── */}
       <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:50,background:navBg,backdropFilter:scrolled?"blur(16px)":"none",borderBottom:scrolled?`1px solid ${border}`:"none",transition:"all .3s"}}>
         <div style={{maxWidth:"1200px",margin:"0 auto",padding:"0 24px",display:"flex",alignItems:"center",justifyContent:"space-between",height:"64px"}}>
-          <button onClick={()=>goto("home")} style={{fontFamily:"Syne,sans-serif",fontWeight:800,fontSize:"20px",color:"#22c55e",background:"none",border:"none",cursor:"pointer"}}>
+          <button onClick={()=>goto("home")} style={{fontFamily:"Syne,sans-serif",fontWeight:800,fontSize:"20px",color:"#3b82f6",background:"none",border:"none",cursor:"pointer"}}>
             &lt;GSH /&gt;
           </button>
           <div style={{display:"flex",gap:"4px",alignItems:"center"}} className="hidden-mobile">
             {navLinks.map(n=>(
-              <button key={n} onClick={()=>goto(n)} style={{background:activeNav===n?"rgba(34,197,94,.1)":"none",color:activeNav===n?"#22c55e":sub,border:"none",borderRadius:"8px",padding:"6px 12px",cursor:"pointer",fontSize:"13px",fontFamily:"Outfit,sans-serif",fontWeight:500,transition:"all .2s"}}>
+              <button key={n} onClick={()=>goto(n)} style={{background:activeNav===n?"rgba(59,130,246,.1)":"none",color:activeNav===n?"#3b82f6":sub,border:"none",borderRadius:"8px",padding:"6px 12px",cursor:"pointer",fontSize:"13px",fontFamily:"Outfit,sans-serif",fontWeight:500,transition:"all .2s"}}>
                 {n}
               </button>
             ))}
           </div>
           <div style={{display:"flex",gap:"10px",alignItems:"center"}}>
-            <button onClick={()=>setDark(!dark)} style={{background:"rgba(34,197,94,.08)",border:`1px solid ${border}`,color:"#22c55e",borderRadius:"8px",padding:"7px 10px",cursor:"pointer",fontSize:"13px"}}>
+            <button onClick={()=>setDark(!dark)} style={{background:"rgba(59,130,246,.08)",border:`1px solid ${border}`,color:"#3b82f6",borderRadius:"8px",padding:"7px 10px",cursor:"pointer",fontSize:"13px"}}>
               {dark?"☀️":"🌙"}
             </button>
-            <a href="/Shahariar_CV_SWE.pdf" download style={{background:"#22c55e",color:"#000",borderRadius:"8px",padding:"7px 16px",textDecoration:"none",fontSize:"13px",fontWeight:700,fontFamily:"Outfit,sans-serif"}}>
+            <a href="/Shahariar_CV_SWE.pdf" download style={{background:"#3b82f6",color:"#000",borderRadius:"8px",padding:"7px 16px",textDecoration:"none",fontSize:"13px",fontWeight:700,fontFamily:"Outfit,sans-serif"}}>
               ↓ CV
             </a>
             <button onClick={()=>setMenuOpen(!menuOpen)} className="menu-btn" style={{background:"none",border:"none",color:sub,cursor:"pointer",fontSize:"20px"}}>
@@ -352,7 +352,7 @@ export default function App() {
         {menuOpen && (
           <div style={{background:dark?"#0d1b33":"#fff",borderTop:`1px solid ${border}`,padding:"12px 24px"}}>
             {navLinks.map(n=>(
-              <button key={n} onClick={()=>goto(n)} style={{display:"block",width:"100%",textAlign:"left",padding:"10px 12px",background:"none",border:"none",color:activeNav===n?"#22c55e":sub,borderRadius:"8px",cursor:"pointer",fontSize:"14px",fontFamily:"Outfit,sans-serif"}}>
+              <button key={n} onClick={()=>goto(n)} style={{display:"block",width:"100%",textAlign:"left",padding:"10px 12px",background:"none",border:"none",color:activeNav===n?"#3b82f6":sub,borderRadius:"8px",cursor:"pointer",fontSize:"14px",fontFamily:"Outfit,sans-serif"}}>
                 {n}
               </button>
             ))}
@@ -364,25 +364,25 @@ export default function App() {
       <section id="home" style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",position:"relative",zIndex:1,padding:"96px 16px 40px"}}>
         <div style={{textAlign:"center",maxWidth:"800px",width:"100%"}}>
           <TechMarquee sub={sub} />
-          <div style={{display:"inline-flex",alignItems:"center",gap:"8px",background:"rgba(34,197,94,.08)",border:"1px solid rgba(34,197,94,.2)",borderRadius:"99px",padding:"6px 16px",marginBottom:"28px"}}>
-            <span style={{width:"8px",height:"8px",borderRadius:"50%",background:"#22c55e",display:"inline-block",boxShadow:"0 0 8px #22c55e"}}></span>
-            <span style={{color:"#22c55e",fontSize:"12px",fontFamily:"JetBrains Mono,monospace",letterSpacing:"1px"}}>Available for opportunities</span>
+          <div style={{display:"inline-flex",alignItems:"center",gap:"8px",background:"rgba(59,130,246,.08)",border:"1px solid rgba(59,130,246,.2)",borderRadius:"99px",padding:"6px 16px",marginBottom:"28px"}}>
+            <span style={{width:"8px",height:"8px",borderRadius:"50%",background:"#3b82f6",display:"inline-block",boxShadow:"0 0 8px #3b82f6"}}></span>
+            <span style={{color:"#3b82f6",fontSize:"12px",fontFamily:"JetBrains Mono,monospace",letterSpacing:"1px"}}>Available for opportunities</span>
           </div>
           <h1 style={{fontFamily:"Syne,sans-serif",fontSize:"clamp(36px,6vw,72px)",fontWeight:800,lineHeight:1.1,marginBottom:"16px"}}>
-            Hi, I'm <span style={{color:"#22c55e"}}>Shahariar</span>
+            Hi, I'm <span style={{color:"#3b82f6"}}>Shahariar</span>
           </h1>
           <div style={{fontFamily:"JetBrains Mono,monospace",fontSize:"clamp(16px,2.5vw,24px)",color:"#64748b",marginBottom:"24px",minHeight:"36px"}}>
-            <span style={{color:"#22c55e"}}>{">"}</span> <span style={{color:dark?"#cbd5e1":"#334155"}}>{typed}</span>
-            <span style={{color:"#22c55e",animation:"blink 1s infinite"}}>|</span>
+            <span style={{color:"#3b82f6"}}>{">"}</span> <span style={{color:dark?"#cbd5e1":"#334155"}}>{typed}</span>
+            <span style={{color:"#3b82f6",animation:"blink 1s infinite"}}>|</span>
           </div>
           <p style={{color:sub,fontSize:"16px",lineHeight:1.8,maxWidth:"600px",margin:"0 auto 40px",fontWeight:300}}>
             {personal.objective}
           </p>
           <div style={{display:"flex",gap:"16px",justifyContent:"center",flexWrap:"wrap"}}>
-            <button onClick={()=>goto("projects")} style={{background:"#22c55e",color:"#000",border:"none",borderRadius:"10px",padding:"13px 28px",fontSize:"15px",fontWeight:700,cursor:"pointer",fontFamily:"Outfit,sans-serif",boxShadow:"0 4px 24px rgba(34,197,94,.35)"}}>
+            <button onClick={()=>goto("projects")} style={{background:"#3b82f6",color:"#000",border:"none",borderRadius:"10px",padding:"13px 28px",fontSize:"15px",fontWeight:700,cursor:"pointer",fontFamily:"Outfit,sans-serif",boxShadow:"0 4px 24px rgba(59,130,246,.35)"}}>
               View Projects →
             </button>
-            <button onClick={()=>goto("contact")} style={{background:"transparent",color:"#22c55e",border:"1px solid rgba(34,197,94,.4)",borderRadius:"10px",padding:"13px 28px",fontSize:"15px",fontWeight:600,cursor:"pointer",fontFamily:"Outfit,sans-serif"}}>
+            <button onClick={()=>goto("contact")} style={{background:"transparent",color:"#3b82f6",border:"1px solid rgba(59,130,246,.4)",borderRadius:"10px",padding:"13px 28px",fontSize:"15px",fontWeight:600,cursor:"pointer",fontFamily:"Outfit,sans-serif"}}>
               Contact Me
             </button>
           </div>
@@ -390,9 +390,9 @@ export default function App() {
             {[["https://www.linkedin.com/in/gazi-shahariar-hasan-77807a373/","in","LinkedIn"],["https://github.com/Shaharia66","gh","GitHub"],["mailto:gssaif.tm@gmail.com","@","Email"]].map(([href,icon,label])=>(
               <a key={label} href={href} target="_blank" rel="noreferrer"
                 style={{color:sub,textDecoration:"none",fontSize:"13px",display:"flex",flexDirection:"column",alignItems:"center",gap:"4px",transition:"color .2s"}}
-                onMouseEnter={e=>{e.currentTarget.style.color="#22c55e"}}
+                onMouseEnter={e=>{e.currentTarget.style.color="#3b82f6"}}
                 onMouseLeave={e=>{e.currentTarget.style.color=sub}}>
-                <span style={{width:"38px",height:"38px",borderRadius:"10px",background:"rgba(34,197,94,.08)",border:`1px solid ${border}`,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"JetBrains Mono,monospace",fontWeight:700,fontSize:"12px"}}>{icon}</span>
+                <span style={{width:"38px",height:"38px",borderRadius:"10px",background:"rgba(59,130,246,.08)",border:`1px solid ${border}`,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"JetBrains Mono,monospace",fontWeight:700,fontSize:"12px"}}>{icon}</span>
                 <span style={{fontSize:"10px",letterSpacing:"1px",textTransform:"uppercase"}}>{label}</span>
               </a>
             ))}
@@ -400,7 +400,7 @@ export default function App() {
         </div>
         <div style={{position:"absolute",bottom:"40px",left:"50%",transform:"translateX(-50%)",display:"flex",flexDirection:"column",alignItems:"center",gap:"6px",color:"rgba(148,163,184,.4)"}}>
           <span style={{fontSize:"11px",letterSpacing:"2px",textTransform:"uppercase"}}>scroll</span>
-          <div style={{width:"1px",height:"40px",background:"linear-gradient(to bottom,rgba(34,197,94,.5),transparent)"}} />
+          <div style={{width:"1px",height:"40px",background:"linear-gradient(to bottom,rgba(59,130,246,.5),transparent)"}} />
         </div>
       </section>
 
@@ -414,7 +414,7 @@ export default function App() {
             ))}
             <div style={{display:"flex",flexWrap:"wrap",gap:"10px",marginTop:"24px"}}>
               {["Python","LangChain","React.js","Spring Boot","FastAPI","RAG","ChromaDB","Java","JWT","OAuth2","MongoDB","Redis"].map(t=>(
-                <span key={t} style={{background:"rgba(34,197,94,.08)",border:"1px solid rgba(34,197,94,.2)",color:"#22c55e",borderRadius:"6px",padding:"5px 12px",fontSize:"12px",fontFamily:"JetBrains Mono,monospace"}}>
+                <span key={t} style={{background:"rgba(59,130,246,.08)",border:"1px solid rgba(59,130,246,.2)",color:"#3b82f6",borderRadius:"6px",padding:"5px 12px",fontSize:"12px",fontFamily:"JetBrains Mono,monospace"}}>
                   {t}
                 </span>
               ))}
@@ -423,7 +423,7 @@ export default function App() {
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"16px"}}>
             {[["7+","Projects Built"],["3+","Years Learning"],["5.0","GPA in SSC & HSC"],["2","AI Projects Live"]].map(([v,l])=>(
               <div key={l} style={{background:cardBg,border:`1px solid ${border}`,borderRadius:"14px",padding:"24px",textAlign:"center",backdropFilter:"blur(8px)"}}>
-                <div style={{fontFamily:"Syne,sans-serif",fontSize:"32px",fontWeight:800,color:"#22c55e"}}>{v}</div>
+                <div style={{fontFamily:"Syne,sans-serif",fontSize:"32px",fontWeight:800,color:"#3b82f6"}}>{v}</div>
                 <div style={{color:sub,fontSize:"12px",marginTop:"4px"}}>{l}</div>
               </div>
             ))}
@@ -435,19 +435,19 @@ export default function App() {
       <Section id="education">
         <SectionTitle label="02. education" title="Academic Journey" />
         <div style={{position:"relative",paddingLeft:"32px"}}>
-          <div style={{position:"absolute",left:"10px",top:0,bottom:0,width:"2px",background:"linear-gradient(to bottom,#22c55e,transparent)"}} />
+          <div style={{position:"absolute",left:"10px",top:0,bottom:0,width:"2px",background:"linear-gradient(to bottom,#3b82f6,transparent)"}} />
           {education.map((e,i)=>(
             <div key={i} style={{position:"relative",marginBottom:"32px",paddingLeft:"28px"}}>
-              <div style={{position:"absolute",left:"-27px",top:"16px",width:"16px",height:"16px",borderRadius:"50%",background:"#22c55e",border:"3px solid #070e1c",boxShadow:"0 0 12px rgba(34,197,94,.5)"}} />
+              <div style={{position:"absolute",left:"-27px",top:"16px",width:"16px",height:"16px",borderRadius:"50%",background:"#3b82f6",border:"3px solid #070e1c",boxShadow:"0 0 12px rgba(59,130,246,.5)"}} />
               <div style={{background:cardBg,border:`1px solid ${border}`,borderRadius:"16px",padding:"24px 28px",backdropFilter:"blur(8px)",transition:"all .3s"}}
-                onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(34,197,94,.35)";e.currentTarget.style.transform="translateX(4px)"}}
+                onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(59,130,246,.35)";e.currentTarget.style.transform="translateX(4px)"}}
                 onMouseLeave={e=>{e.currentTarget.style.borderColor=border;e.currentTarget.style.transform="translateX(0)"}}>
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",flexWrap:"wrap",gap:"8px",marginBottom:"8px"}}>
                   <div>
                     <span style={{fontSize:"22px",marginRight:"10px"}}>{e.icon}</span>
                     <span style={{fontFamily:"Syne,sans-serif",fontWeight:700,fontSize:"17px"}}>{e.degree}</span>
                   </div>
-                  <span style={{background:"rgba(34,197,94,.1)",color:"#22c55e",borderRadius:"6px",padding:"3px 10px",fontSize:"12px",fontFamily:"JetBrains Mono,monospace",whiteSpace:"nowrap"}}>{e.grade}</span>
+                  <span style={{background:"rgba(59,130,246,.1)",color:"#3b82f6",borderRadius:"6px",padding:"3px 10px",fontSize:"12px",fontFamily:"JetBrains Mono,monospace",whiteSpace:"nowrap"}}>{e.grade}</span>
                 </div>
                 <p style={{color:sub,fontSize:"14px"}}>{e.inst}</p>
                 <p style={{color:"#64748b",fontSize:"12px",marginTop:"6px",fontFamily:"JetBrains Mono,monospace"}}>{e.period}</p>
@@ -463,19 +463,19 @@ export default function App() {
         <div style={{display:"flex",flexDirection:"column",gap:"24px"}}>
           {experience.map((e,i)=>(
             <div key={i} style={{background:cardBg,border:`1px solid ${border}`,borderRadius:"16px",padding:"28px",backdropFilter:"blur(8px)",transition:"all .3s"}}
-              onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(34,197,94,.35)";e.currentTarget.style.boxShadow="0 0 28px rgba(34,197,94,.1)"}}
+              onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(59,130,246,.35)";e.currentTarget.style.boxShadow="0 0 28px rgba(59,130,246,.1)"}}
               onMouseLeave={e=>{e.currentTarget.style.borderColor=border;e.currentTarget.style.boxShadow="none"}}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",flexWrap:"wrap",gap:"12px",marginBottom:"16px"}}>
                 <div>
                   <h3 style={{fontFamily:"Syne,sans-serif",fontWeight:700,fontSize:"18px",marginBottom:"4px"}}>{e.title}</h3>
-                  <p style={{color:"#22c55e",fontSize:"14px"}}>{e.company} · <span style={{color:sub}}>{e.location}</span></p>
+                  <p style={{color:"#3b82f6",fontSize:"14px"}}>{e.company} · <span style={{color:sub}}>{e.location}</span></p>
                 </div>
-                <span style={{background:"rgba(34,197,94,.08)",border:"1px solid rgba(34,197,94,.2)",color:"#22c55e",borderRadius:"6px",padding:"4px 12px",fontSize:"12px",fontFamily:"JetBrains Mono,monospace",whiteSpace:"nowrap"}}>{e.period}</span>
+                <span style={{background:"rgba(59,130,246,.08)",border:"1px solid rgba(59,130,246,.2)",color:"#3b82f6",borderRadius:"6px",padding:"4px 12px",fontSize:"12px",fontFamily:"JetBrains Mono,monospace",whiteSpace:"nowrap"}}>{e.period}</span>
               </div>
               <ul style={{listStyle:"none",padding:0,display:"flex",flexDirection:"column",gap:"8px"}}>
                 {e.bullets.map((b,j)=>(
                   <li key={j} style={{display:"flex",gap:"10px",color:sub,fontSize:"14px",lineHeight:1.7}}>
-                    <span style={{color:"#22c55e",marginTop:"2px",flexShrink:0}}>▸</span>{b}
+                    <span style={{color:"#3b82f6",marginTop:"2px",flexShrink:0}}>▸</span>{b}
                   </li>
                 ))}
               </ul>
@@ -488,20 +488,20 @@ export default function App() {
       <Section id="research">
         <SectionTitle label="04. research" title="Research Work" />
         <div style={{background:cardBg,border:`1px solid ${border}`,borderRadius:"20px",padding:"36px",backdropFilter:"blur(8px)"}}>
-          <div style={{display:"inline-flex",gap:"8px",background:"rgba(34,197,94,.08)",border:"1px solid rgba(34,197,94,.2)",borderRadius:"6px",padding:"4px 12px",marginBottom:"20px"}}>
-            <span style={{color:"#22c55e",fontSize:"12px",fontFamily:"JetBrains Mono,monospace"}}>Undergraduate Thesis</span>
+          <div style={{display:"inline-flex",gap:"8px",background:"rgba(59,130,246,.08)",border:"1px solid rgba(59,130,246,.2)",borderRadius:"6px",padding:"4px 12px",marginBottom:"20px"}}>
+            <span style={{color:"#3b82f6",fontSize:"12px",fontFamily:"JetBrains Mono,monospace"}}>Undergraduate Thesis</span>
           </div>
           <h3 style={{fontFamily:"Syne,sans-serif",fontWeight:700,fontSize:"20px",marginBottom:"20px",lineHeight:1.4}}>
-            <a href={research.link} target="_blank" rel="noreferrer" style={{color:"#f1f5f9",textDecoration:"none",borderBottom:"1px solid rgba(34,197,94,.4)"}}
-              onMouseEnter={e=>e.currentTarget.style.color="#22c55e"}
+            <a href={research.link} target="_blank" rel="noreferrer" style={{color:"#f1f5f9",textDecoration:"none",borderBottom:"1px solid rgba(59,130,246,.4)"}}
+              onMouseEnter={e=>e.currentTarget.style.color="#3b82f6"}
               onMouseLeave={e=>e.currentTarget.style.color="#f1f5f9"}>
               {research.paper} ↗
             </a>
           </h3>
           <div style={{display:"flex",gap:"24px",flexWrap:"wrap",marginBottom:"24px"}}>
             {research.supervisors.map((s,i)=>(
-              <div key={i} style={{background:"rgba(34,197,94,.04)",border:"1px solid rgba(34,197,94,.1)",borderRadius:"10px",padding:"14px 18px"}}>
-                <a href={s.link} target="_blank" rel="noreferrer" style={{color:"#22c55e",fontSize:"14px",fontWeight:600,textDecoration:"none"}}>{s.name}</a>
+              <div key={i} style={{background:"rgba(59,130,246,.04)",border:"1px solid rgba(59,130,246,.1)",borderRadius:"10px",padding:"14px 18px"}}>
+                <a href={s.link} target="_blank" rel="noreferrer" style={{color:"#3b82f6",fontSize:"14px",fontWeight:600,textDecoration:"none"}}>{s.name}</a>
                 <p style={{color:sub,fontSize:"12px",marginTop:"3px"}}>{s.role}</p>
                 <p style={{color:"#64748b",fontSize:"11px",fontFamily:"JetBrains Mono,monospace",marginTop:"2px"}}>{s.period}</p>
               </div>
@@ -510,7 +510,7 @@ export default function App() {
           <ul style={{listStyle:"none",padding:0,display:"flex",flexDirection:"column",gap:"10px"}}>
             {research.bullets.map((b,i)=>(
               <li key={i} style={{display:"flex",gap:"10px",color:sub,fontSize:"14px",lineHeight:1.7}}>
-                <span style={{color:"#22c55e",flexShrink:0}}>▸</span>{b}
+                <span style={{color:"#3b82f6",flexShrink:0}}>▸</span>{b}
               </li>
             ))}
           </ul>
@@ -565,16 +565,16 @@ export default function App() {
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:"24px"}}>
           {skillGroups.map((g,i)=>(
             <div key={i} style={{background:cardBg,border:`1px solid ${border}`,borderRadius:"16px",padding:"28px",backdropFilter:"blur(8px)"}}>
-              <h3 style={{fontFamily:"Syne,sans-serif",fontWeight:700,fontSize:"16px",color:"#22c55e",marginBottom:"20px"}}>{g.cat}</h3>
+              <h3 style={{fontFamily:"Syne,sans-serif",fontWeight:700,fontSize:"16px",color:"#3b82f6",marginBottom:"20px"}}>{g.cat}</h3>
               {g.items.map((s,j)=><SkillBar key={j} name={s.n} value={s.v} delay={j*80} />)}
             </div>
           ))}
         </div>
         <div style={{marginTop:"32px",background:cardBg,border:`1px solid ${border}`,borderRadius:"16px",padding:"28px",backdropFilter:"blur(8px)"}}>
-          <h3 style={{fontFamily:"Syne,sans-serif",fontWeight:700,fontSize:"16px",color:"#22c55e",marginBottom:"16px"}}>Agentic AI & Other Frameworks</h3>
+          <h3 style={{fontFamily:"Syne,sans-serif",fontWeight:700,fontSize:"16px",color:"#3b82f6",marginBottom:"16px"}}>Agentic AI & Other Frameworks</h3>
           <div style={{display:"flex",flexWrap:"wrap",gap:"10px"}}>
             {["LangGraph","Crew AI","Agno","Autogen","LlamaIndex","Hugging Face","Fine-Tuning (QLORA,LORA)","MCP","Google A2A","MATLAB Simulink","AutoCAD","MS Office","LaTeX","Canva"].map(t=>(
-              <span key={t} style={{background:"rgba(34,197,94,.06)",border:"1px solid rgba(34,197,94,.15)",color:sub,borderRadius:"8px",padding:"6px 14px",fontSize:"13px"}}>
+              <span key={t} style={{background:"rgba(59,130,246,.06)",border:"1px solid rgba(59,130,246,.15)",color:sub,borderRadius:"8px",padding:"6px 14px",fontSize:"13px"}}>
                 {t}
               </span>
             ))}
@@ -588,7 +588,7 @@ export default function App() {
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:"20px"}}>
           {certs.map((c,i)=>(
             <div key={i} style={{background:cardBg,border:`1px solid ${border}`,borderRadius:"16px",padding:"28px",backdropFilter:"blur(8px)",transition:"all .3s",display:"flex",flexDirection:"column",gap:"12px"}}
-              onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(34,197,94,.35)";e.currentTarget.style.transform="translateY(-3px)"}}
+              onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(59,130,246,.35)";e.currentTarget.style.transform="translateY(-3px)"}}
               onMouseLeave={e=>{e.currentTarget.style.borderColor=border;e.currentTarget.style.transform="translateY(0)"}}>
               <div style={{fontSize:"32px"}}>🏅</div>
               <div>
@@ -596,7 +596,7 @@ export default function App() {
                 <p style={{color:sub,fontSize:"13px"}}>{c.issuer}</p>
               </div>
               <a href={c.link} target="_blank" rel="noreferrer"
-                style={{marginTop:"auto",display:"inline-flex",alignItems:"center",gap:"6px",color:"#22c55e",fontSize:"13px",textDecoration:"none",fontWeight:600}}>
+                style={{marginTop:"auto",display:"inline-flex",alignItems:"center",gap:"6px",color:"#3b82f6",fontSize:"13px",textDecoration:"none",fontWeight:600}}>
                 View Certificate ↗
               </a>
             </div>
@@ -610,15 +610,15 @@ export default function App() {
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",gap:"20px"}}>
           {refs.map((r,i)=>(
             <div key={i} style={{background:cardBg,border:`1px solid ${border}`,borderRadius:"16px",padding:"28px",backdropFilter:"blur(8px)",transition:"all .3s"}}
-              onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(34,197,94,.35)"}}
+              onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(59,130,246,.35)"}}
               onMouseLeave={e=>{e.currentTarget.style.borderColor=border}}>
-              <div style={{width:"48px",height:"48px",borderRadius:"12px",background:"rgba(34,197,94,.1)",border:"1px solid rgba(34,197,94,.2)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:"22px",marginBottom:"16px"}}>👨‍🏫</div>
+              <div style={{width:"48px",height:"48px",borderRadius:"12px",background:"rgba(59,130,246,.1)",border:"1px solid rgba(59,130,246,.2)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:"22px",marginBottom:"16px"}}>👨‍🏫</div>
               <a href={r.link} target="_blank" rel="noreferrer" style={{textDecoration:"none"}}>
-                <h3 style={{fontFamily:"Syne,sans-serif",fontWeight:700,fontSize:"16px",color:"#22c55e",marginBottom:"4px"}}>{r.name}</h3>
+                <h3 style={{fontFamily:"Syne,sans-serif",fontWeight:700,fontSize:"16px",color:"#3b82f6",marginBottom:"4px"}}>{r.name}</h3>
               </a>
               <p style={{color:sub,fontSize:"13px",marginBottom:"2px"}}>{r.role}</p>
               <p style={{color:"#64748b",fontSize:"12px",marginBottom:"12px"}}>{r.dept}</p>
-              <a href={`mailto:${r.email}`} style={{color:"#22c55e",fontSize:"12px",fontFamily:"JetBrains Mono,monospace",textDecoration:"none",display:"flex",alignItems:"center",gap:"6px"}}>
+              <a href={`mailto:${r.email}`} style={{color:"#3b82f6",fontSize:"12px",fontFamily:"JetBrains Mono,monospace",textDecoration:"none",display:"flex",alignItems:"center",gap:"6px"}}>
                 ✉ {r.email}
               </a>
             </div>
@@ -638,7 +638,7 @@ export default function App() {
               {[[`📧`,personal.email,`mailto:${personal.email}`],[`📱`,personal.phone,`tel:${personal.phone}`],[`🔗`,"LinkedIn Profile",personal.linkedin],[`🐙`,"GitHub Profile",personal.github]].map(([icon,label,href])=>(
                 <a key={label} href={href} target="_blank" rel="noreferrer"
                   style={{display:"flex",alignItems:"center",gap:"14px",padding:"14px 18px",background:cardBg,border:`1px solid ${border}`,borderRadius:"12px",textDecoration:"none",color:txt,transition:"all .2s",backdropFilter:"blur(8px)"}}
-                  onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(34,197,94,.35)";e.currentTarget.style.color="#22c55e"}}
+                  onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(59,130,246,.35)";e.currentTarget.style.color="#3b82f6"}}
                   onMouseLeave={e=>{e.currentTarget.style.borderColor=border;e.currentTarget.style.color=txt}}>
                   <span style={{fontSize:"20px"}}>{icon}</span>
                   <span style={{fontSize:"14px"}}>{label}</span>
@@ -650,7 +650,7 @@ export default function App() {
             {sent ? (
               <div style={{textAlign:"center",padding:"40px 20px"}}>
                 <div style={{fontSize:"48px",marginBottom:"16px"}}>✅</div>
-                <h3 style={{fontFamily:"Syne,sans-serif",fontWeight:700,fontSize:"20px",color:"#22c55e",marginBottom:"8px"}}>Message Sent!</h3>
+                <h3 style={{fontFamily:"Syne,sans-serif",fontWeight:700,fontSize:"20px",color:"#3b82f6",marginBottom:"8px"}}>Message Sent!</h3>
                 <p style={{color:sub,fontSize:"14px"}}>Thanks for reaching out. I'll get back to you soon.</p>
               </div>
             ) : (
@@ -660,18 +660,18 @@ export default function App() {
                     <input type={type} placeholder={placeholder} value={formData[field]} required
                       onChange={e=>setFormData({...formData,[field]:e.target.value})}
                       style={{width:"100%",background:"rgba(255,255,255,.04)",border:`1px solid ${border}`,borderRadius:"10px",padding:"12px 16px",color:txt,fontSize:"14px",fontFamily:"Outfit,sans-serif",outline:"none",boxSizing:"border-box"}}
-                      onFocus={e=>{e.target.style.borderColor="rgba(34,197,94,.5)"}}
+                      onFocus={e=>{e.target.style.borderColor="rgba(59,130,246,.5)"}}
                       onBlur={e=>{e.target.style.borderColor=border}} />
                   </div>
                 ))}
                 <textarea placeholder="Your Message" value={formData.message} required rows={5}
                   onChange={e=>setFormData({...formData,message:e.target.value})}
                   style={{width:"100%",background:"rgba(255,255,255,.04)",border:`1px solid ${border}`,borderRadius:"10px",padding:"12px 16px",color:txt,fontSize:"14px",fontFamily:"Outfit,sans-serif",outline:"none",resize:"vertical",boxSizing:"border-box"}}
-                  onFocus={e=>{e.target.style.borderColor="rgba(34,197,94,.5)"}}
+                  onFocus={e=>{e.target.style.borderColor="rgba(59,130,246,.5)"}}
                   onBlur={e=>{e.target.style.borderColor=border}} />
-                <button type="submit" style={{background:"#22c55e",color:"#000",border:"none",borderRadius:"10px",padding:"13px",fontSize:"15px",fontWeight:700,cursor:"pointer",fontFamily:"Outfit,sans-serif",transition:"all .2s",boxShadow:"0 4px 20px rgba(34,197,94,.3)"}}
-                  onMouseEnter={e=>{e.currentTarget.style.background="#4ade80"}}
-                  onMouseLeave={e=>{e.currentTarget.style.background="#22c55e"}}>
+                <button type="submit" style={{background:"#3b82f6",color:"#000",border:"none",borderRadius:"10px",padding:"13px",fontSize:"15px",fontWeight:700,cursor:"pointer",fontFamily:"Outfit,sans-serif",transition:"all .2s",boxShadow:"0 4px 20px rgba(59,130,246,.3)"}}
+                  onMouseEnter={e=>{e.currentTarget.style.background="#60a5fa"}}
+                  onMouseLeave={e=>{e.currentTarget.style.background="#3b82f6"}}>
                   Send Message →
                 </button>
               </form>
@@ -682,13 +682,13 @@ export default function App() {
 
       {/* ── FOOTER ── */}
       <footer style={{position:"relative",zIndex:1,borderTop:`1px solid ${border}`,padding:"32px 24px",textAlign:"center"}}>
-        <p style={{fontFamily:"Syne,sans-serif",fontWeight:700,fontSize:"18px",color:"#22c55e",marginBottom:"8px"}}>&lt;GSH /&gt;</p>
+        <p style={{fontFamily:"Syne,sans-serif",fontWeight:700,fontSize:"18px",color:"#3b82f6",marginBottom:"8px"}}>&lt;GSH /&gt;</p>
         <p style={{color:"#64748b",fontSize:"13px",fontFamily:"JetBrains Mono,monospace"}}>© 2026 Gazi Shahariar Hasan · Built with React + Love</p>
       </footer>
 
       {/* ── BACK TO TOP ── */}
       <button onClick={()=>goto("home")}
-        style={{position:"fixed",bottom:"28px",right:"28px",zIndex:50,width:"44px",height:"44px",background:"#22c55e",color:"#000",border:"none",borderRadius:"12px",fontSize:"18px",cursor:"pointer",boxShadow:"0 4px 20px rgba(34,197,94,.4)",transition:"all .2s",display:scrolled?"flex":"none",alignItems:"center",justifyContent:"center"}}
+        style={{position:"fixed",bottom:"28px",right:"28px",zIndex:50,width:"44px",height:"44px",background:"#3b82f6",color:"#000",border:"none",borderRadius:"12px",fontSize:"18px",cursor:"pointer",boxShadow:"0 4px 20px rgba(59,130,246,.4)",transition:"all .2s",display:scrolled?"flex":"none",alignItems:"center",justifyContent:"center"}}
         onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-3px)"}}
         onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)"}}>↑</button>
 
